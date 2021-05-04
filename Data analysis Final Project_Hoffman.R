@@ -1,4 +1,4 @@
-
+#Sourcing this code takes approximately 5 minutes to run. 
 #Open Libraries
 library(ipumsr)
 library(tidycensus)
@@ -479,7 +479,9 @@ modelsummary(list(est_southeast3,est_southeast4), output= "latex")
 modelsummary(list(est_northeast3,est_northeast4), output= "latex")
 
 
-
+## Side by Side comparison tables
+modelsummary(list(est_pacificwest3,est_rockymtn3, est_southwest3, est_midwest3,est_southeast3, est_northeast3), output= "latex")
+modelsummary(list(est_pacificwest4,est_rockymtn4, est_southwest4, est_midwest4,est_southeast4, est_northeast4), output= "latex")
 
 #GET GRAPH From St. Louis Federal Reserve Bank 
 
