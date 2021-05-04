@@ -25,8 +25,11 @@ data1 %<>% filter(EDUCD>=002)
 data1 %<>% filter(EDUCD>=01)
 data1 %<>% filter(INCWAGE>=1)
 data1 %<>% filter(INCTOT>=15000)
-data1 %<>% filter(INCTOT<=300000)
+data1 %<>% filter(INCTOT<=3000000)
 data1 %<>% filter(EDUCD<999)
+
+
+
 
 ##Mutate Data 
 ####RACE Variable 
