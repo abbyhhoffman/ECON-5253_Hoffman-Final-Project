@@ -1,0 +1,219 @@
+\documentclass[9pt]{beamer}
+% Created By Gouthaman KG
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Use roboto Font (recommended)
+\usepackage[sfdefault]{roboto}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Define where theme files are located. ('/styles')
+\usepackage{styles/fluxmacros}
+\usefolder{styles}
+% Use Flux theme v0.1 beta
+% Available style: asphalt, blue, red, green, gray 
+\usetheme[style=asphalt]{flux}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Extra packages for the demo:
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{ragged2e}
+\usepackage{schemabloc}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hanging}
+\usebackgroundtemplate{
+\includegraphics[width=\paperwidth,height=\paperheight]{assets/background.jpg}}%change this to your preferred background for the presentation.
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Informations
+\title{Educational Attainment on Wages:}
+\subtitle{A Regional Analysis of the United States of America}
+
+\author{Abigail Hoffman}
+\institute{University of Oklahoma}
+\titlegraphic{assets/ou.png} %change this to your preferred logo or image(the image is located on the top right corner).
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{document}
+
+% Generate title page
+\titlepage
+
+\begin{frame}
+
+ \frametitle{TABLE OF CONTENTS}
+ \tableofcontents
+\end{frame}
+
+\section{Introduction} %the content in the section will be displayed in the table of contents
+\begin{frame}{Introduction}%the content in the frame will be displayed as the title of the page
+\underline{Why?}
+\begin{itemize}
+ \setlength\itemsep{1em}
+    \item[$\square$] Divisive politics over the last ten years (2010-2019). 
+    \item[$\square$] Rising household consumer price index (CPI) spending on education. 
+    \item[$\square$] With the rise in spending, is there a more advantageous region in the United States to move for greater returns on wages after increased educational attainment?
+\end{itemize}
+ 
+\end{frame}
+
+\subsection{Consumer Price Index of US Education }
+\begin{frame}{CPI US EDUCATION}
+ \includegraphics[scale=0.6]{assets/CPIUSEDUC.png}  
+\end{frame}
+
+\subsection{Six Regions of the United States}
+\begin{frame}{USA Regions}
+\centering
+\includegraphics[scale=0.14]{assets/usaREGIONS.jpg}
+\end{frame}
+
+\section{Literature Review}
+\begin{frame}{Literature Review}
+\hangindent=2em
+\hangafter=2
+\begin{itemize}
+\setlength\itemsep{1em}
+    \item[$\square$] Dahl, Gordon B. "Mobility and the return to education: Testing a Roy model             with multiple markets." Econometrica 70.6 (2002): 2367-2420.
+    \item[$\square$] Dickson, Matt, and Colm Harmon. "Economic returns to education: What we                know, what we don’t know, and where we are going—some brief                      pointers." Economics of education review 30.6 (2011): 1118-1122.
+    \item[$\square$] Ransom, Tyler. "Selective migration, occupational choice, and the wage                 returns to college majors." (2020).
+\end{itemize}
+
+\end{frame}
+
+\section{Data and Models}
+\begin{frame}{Data and Models}
+\begin{itemize}
+  \setlength\itemsep{1em}
+\item[$\square$] Data retrieved IPUMS-USA using sampling from the American Community Survey (ACS). 
+\item[$\square$] Entire data set has 3,816,929 observations.
+\item[$\square$] OLS logistic regressions with robust standard errors.
+
+
+\itemsep{$-$} Simple Regression 
+\begin{equation}
+y = \beta0 + \beta1*x1 + u
+\end{equation}
+\begin{equation}
+    log(incwage) = \beta0 + \beta1*EDUCYRS + u 
+\end{equation}
+
+\itemsep{$-$} Multiple Regression with Dummy Variables 
+    \begin{equation}
+    y = \beta0 + \beta1x1+ \beta2x2+ \beta3x3 + \beta4x4 + \beta5x5 + \beta6x6 + \beta7x7 + u 
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\begin{split}
+log(incwage) = \\
+&   \beta0 + \beta1*EDUCYRS + \\
+&  \beta2*AGE+ \beta3*AGE^2 + \\
+&  \beta4*SEX + \beta5*RACENW + \\
+&  \beta6*MARSTD +\beta7*METROSTATUS + u
+\end{split}
+\end{aligned}
+\end{equation}
+
+\end{itemize} 
+\end{frame}
+
+\section{Findings/Results}
+\subsection{Findings}
+\begin{frame}{Simple Regression Region Models Comparison}
+\begin{table}
+\centering
+ \scalebox{0.80}{
+\begin{tabular}[t]{lcccccc}
+\toprule
+ & Pacific (West) & Rocky Mountain & Southwest & Midwest & Southeast & Northeast\\
+\midrule
+(Intercept) & 9.554 & 9.620 & 9.877 & 9.727 & 9.695 & 9.693\\
+ & (0.014) & (0.030) & (0.019) & (0.014) & (0.013) & (0.012)\\
+EDUCYRS & 0.085 & 0.072 & 0.060 & 0.065 & 0.067 & 0.075\\
+ & (0.001) & (0.002) & (0.001) & (0.001) & (0.001) & (0.001)\\
+\midrule
+Num.Obs. & 677420 & 166375 & 409548 & 737003 & 857030 & 969553\\
+R2 & 0.015 & 0.010 & 0.007 & 0.008 & 0.010 & 0.012\\
+R2 Adj. & 0.015 & 0.010 & 0.007 & 0.008 & 0.010 & 0.012\\
+se\_type & HC2 & HC2 & HC2 & HC2 & HC2 & HC2\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{frame}
+
+\begin{frame}{Findings: Multiple Regression Regional Models Comparison}
+\begin{table}
+\centering
+  \scalebox{0.75}{
+\begin{tabular}[t]{lcccccc}
+\toprule
+& Pacific (West) & Rocky Mountain & Southwest & Midwest & Southeast & Northeast\\
+\midrule
+(Intercept) & 7.075 & 6.993 & 7.458 & 7.007 & 7.198 & 7.101\\
+ & (0.019) & (0.037) & (0.024) & (0.018) & (0.016) & (0.015)\\
+EDUCYRS & 0.073 & 0.065 & 0.056 & 0.062 & 0.067 & 0.069\\
+ & (0.001) & (0.002) & (0.001) & (0.001) & (0.001) & (0.001)\\
+AGE & 0.122 & 0.134 & 0.120 & 0.136 & 0.122 & 0.125\\
+ & (0.001) & (0.001) & (0.001) & (0.001) & (0.001) & (0.001)\\
+AGE^2 & -0.001 & -0.001 & -0.001 & -0.002 & -0.001 & -0.001\\
+ & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000)\\
+SEX & -0.252 & -0.291 & -0.299 & -0.277 & -0.284 & -0.252\\
+ & (0.002) & (0.004) & (0.002) & (0.002) & (0.002) & (0.002)\\
+RACENW & 0.002 & -0.090 & -0.063 & -0.061 & -0.094 & -0.029\\
+ & (0.002) & (0.005) & (0.003) & (0.002) & (0.002) & (0.002)\\
+MARSTD & -0.128 & -0.107 & -0.122 & -0.115 & -0.116 & -0.112\\
+ & (0.002) & (0.004) & (0.003) & (0.002) & (0.002) & (0.002)\\
+METROSTATUS & 0.339 & 0.208 & 0.248 & 0.257 & 0.228 & 0.333\\
+ & (0.006) & (0.006) & (0.005) & (0.002) & (0.003) & (0.004)\\
+\midrule
+Num.Obs. & 677420 & 166375 & 409548 & 737003 & 857030 & 969553\\
+R2 & 0.156 & 0.179 & 0.167 & 0.199 & 0.171 & 0.168\\
+R2 Adj. & 0.156 & 0.179 & 0.167 & 0.199 & 0.171 & 0.168\\
+se\_type & HC2 & HC2 & HC2 & HC2 & HC2 & HC2\\
+\bottomrule
+\end{tabular}}
+\end{table}
+\end{frame}
+
+\subsection{Discussion of Results}
+\begin{frame}{Results}
+\begin{itemize}
+\setlength\itemsep{1em}
+    \item[$\square$] Areas like the Pacific (West) and Northeast demonstrated a smaller gender wage gap of 75 cents on the male dollar compared to the calculated national average of 69 cents on the male dollar earned. Whereas, the areas of the Rocky Mountain region and Southwest region gave a more accurate depiction of the national gender wage gap at approximately 70 cents on the male dollar versus 69 cents on the male dollar.
+    \item[$\square$]   At only a 2 to 3 percent gap, these would be the most advantageous regions for non-white workers. The worst regions to work for non-white workers were found in the Rocky Mountain and Southeast regions. Non-white workers experienced a little over 9 percent gap in earnings compared to their white counterparts.
+    \item[$\square$] The most problematic factor of the regressions are the critically low \begin{math} R^2 \end{math} values.
+\end{itemize}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
+\begin{itemize}
+\setlength\itemsep{1em}
+    \item[$\square$] My hypothesis was rejected.
+    \item[$\square$] For women and people of color there are areas that would be advantageous to move to like the Pacific West and Northeast for less wage discrimination gaps. 
+    \item[$\square$] This research topic could benefit from additional models like the Roy's model, Monte Carlo simulations and integration of fellow techniques from machine learning methods.
+    \item[$\square$]  Machine learning places a greater preference on \begin{math} \hat{y} \end{math} versus \begin{math} \hat{beta} \end{math} in econometric analysis which could better serve the investigation into this topic as complimentary sources from one another.
+\end{itemize}
+\end{frame}
+
+\subsection{Closing Remarks}
+\begin{frame}{Closing Remarks}
+\huge
+    \boldsymbol{Questions,}
+    \boldsymbol{Comments,}
+    \boldsymbol{Concerns?}
+    \newline
+    \newline
+\huge
+    \boldsymbol{THANK}
+    \boldsymbol{YOU}
+    \boldsymbol{!}
+\end{frame}
+\end{document}
