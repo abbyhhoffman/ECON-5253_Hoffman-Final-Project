@@ -92,7 +92,7 @@
 \begin{itemize}
   \setlength\itemsep{1em}
 \item[$\square$] Data retrieved IPUMS-USA using sampling from the American Community Survey (ACS). 
-\item[$\square$] Entire data set has 3,816,929 observations.
+\item[$\square$] Entire data set has 3,956,055 observations.
 \item[$\square$] OLS logistic regressions with robust standard errors.
 
 
@@ -124,58 +124,58 @@ log(incwage) = \\
 \end{itemize} 
 \end{frame}
 
-\section{Findings/Results}
-\subsection{Findings}
-\begin{frame}{Simple Regression Region Models Comparison}
+\begin{frame}{Side-by-Side Simple Regression Comparison of Regions}
 \begin{table}
 \centering
- \scalebox{0.80}{
+    \scalebox{0.8}{
 \begin{tabular}[t]{lcccccc}
 \toprule
- & Pacific (West) & Rocky Mountain & Southwest & Midwest & Southeast & Northeast\\
+  & Pacific (West) & Rocky Mountain & Southwest & Midwest & Southeast & Northeast\\
 \midrule
-(Intercept) & 9.554 & 9.620 & 9.877 & 9.727 & 9.695 & 9.693\\
- & (0.014) & (0.030) & (0.019) & (0.014) & (0.013) & (0.012)\\
-EDUCYRS & 0.085 & 0.072 & 0.060 & 0.065 & 0.067 & 0.075\\
+(Intercept) & 9.389 & 9.488 & 9.724 & 9.577 & 9.587 & 9.580\\
+ & (0.015) & (0.031) & (0.020) & (0.015) & (0.013) & (0.012)\\
+EDUCYRS & 0.098 & 0.083 & 0.073 & 0.076 & 0.077 & 0.085\\
  & (0.001) & (0.002) & (0.001) & (0.001) & (0.001) & (0.001)\\
 \midrule
-Num.Obs. & 677420 & 166375 & 409548 & 737003 & 857030 & 969553\\
-R2 & 0.015 & 0.010 & 0.007 & 0.008 & 0.010 & 0.012\\
-R2 Adj. & 0.015 & 0.010 & 0.007 & 0.008 & 0.010 & 0.012\\
+Num.Obs. & 701007 & 170849 & 424179 & 756201 & 884574 & 999788\\
+R2 & 0.018 & 0.012 & 0.010 & 0.010 & 0.011 & 0.014\\
+R2 Adj. & 0.018 & 0.012 & 0.010 & 0.010 & 0.011 & 0.014\\
 se\_type & HC2 & HC2 & HC2 & HC2 & HC2 & HC2\\
 \bottomrule
 \end{tabular}}
 \end{table}
 \end{frame}
 
-\begin{frame}{Findings: Multiple Regression Regional Models Comparison}
+
+\begin{frame}{Side-by-Side Multiple Regression Comparison of Regions}
+
 \begin{table}
-\centering
-  \scalebox{0.75}{
+\centering 
+      \scalebox{0.75}{
 \begin{tabular}[t]{lcccccc}
 \toprule
-& Pacific (West) & Rocky Mountain & Southwest & Midwest & Southeast & Northeast\\
+ & Pacific (West) & Rocky Mountain & Southwest & Midwest & Southeast & Northeast\\
 \midrule
-(Intercept) & 7.075 & 6.993 & 7.458 & 7.007 & 7.198 & 7.101\\
- & (0.019) & (0.037) & (0.024) & (0.018) & (0.016) & (0.015)\\
-EDUCYRS & 0.073 & 0.065 & 0.056 & 0.062 & 0.067 & 0.069\\
+(Intercept) & 6.851 & 6.807 & 7.238 & 6.800 & 7.042 & 6.931\\
+ & (0.020) & (0.039) & (0.025) & (0.019) & (0.017) & (0.016)\\
+EDUCYRS & 0.083 & 0.073 & 0.065 & 0.071 & 0.074 & 0.076\\
  & (0.001) & (0.002) & (0.001) & (0.001) & (0.001) & (0.001)\\
-AGE & 0.122 & 0.134 & 0.120 & 0.136 & 0.122 & 0.125\\
+AGE & 0.126 & 0.138 & 0.124 & 0.140 & 0.125 & 0.128\\
  & (0.001) & (0.001) & (0.001) & (0.001) & (0.001) & (0.001)\\
-AGE^2 & -0.001 & -0.001 & -0.001 & -0.002 & -0.001 & -0.001\\
+AGE.squared & -0.001 & -0.002 & -0.001 & -0.002 & -0.001 & -0.001\\
  & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000)\\
-SEX & -0.252 & -0.291 & -0.299 & -0.277 & -0.284 & -0.252\\
+SEX & -0.306 & -0.338 & -0.363 & -0.328 & -0.342 & -0.310\\
  & (0.002) & (0.004) & (0.002) & (0.002) & (0.002) & (0.002)\\
-RACENW & 0.002 & -0.090 & -0.063 & -0.061 & -0.094 & -0.029\\
- & (0.002) & (0.005) & (0.003) & (0.002) & (0.002) & (0.002)\\
-MARSTD & -0.128 & -0.107 & -0.122 & -0.115 & -0.116 & -0.112\\
+RACENW & -0.025 & -0.107 & -0.096 & -0.084 & -0.123 & -0.055\\
+ & (0.002) & (0.006) & (0.003) & (0.003) & (0.002) & (0.002)\\
+MARSTD & -0.150 & -0.122 & -0.148 & -0.136 & -0.139 & -0.137\\
  & (0.002) & (0.004) & (0.003) & (0.002) & (0.002) & (0.002)\\
-METROSTATUS & 0.339 & 0.208 & 0.248 & 0.257 & 0.228 & 0.333\\
- & (0.006) & (0.006) & (0.005) & (0.002) & (0.003) & (0.004)\\
+METROSTATUS & 0.378 & 0.227 & 0.288 & 0.285 & 0.260 & 0.369\\
+ & (0.006) & (0.006) & (0.005) & (0.003) & (0.003) & (0.004)\\
 \midrule
-Num.Obs. & 677420 & 166375 & 409548 & 737003 & 857030 & 969553\\
-R2 & 0.156 & 0.179 & 0.167 & 0.199 & 0.171 & 0.168\\
-R2 Adj. & 0.156 & 0.179 & 0.167 & 0.199 & 0.171 & 0.168\\
+Num.Obs. & 701007 & 170849 & 424179 & 756201 & 884574 & 999788\\
+R2 & 0.160 & 0.178 & 0.171 & 0.198 & 0.171 & 0.170\\
+R2 Adj. & 0.160 & 0.178 & 0.171 & 0.198 & 0.171 & 0.170\\
 se\_type & HC2 & HC2 & HC2 & HC2 & HC2 & HC2\\
 \bottomrule
 \end{tabular}}
@@ -186,8 +186,8 @@ se\_type & HC2 & HC2 & HC2 & HC2 & HC2 & HC2\\
 \begin{frame}{Results}
 \begin{itemize}
 \setlength\itemsep{1em}
-    \item[$\square$] Areas like the Pacific (West) and Northeast demonstrated a smaller gender wage gap of 75 cents on the male dollar compared to the calculated national average of 69 cents on the male dollar earned. Whereas, the areas of the Rocky Mountain region and Southwest region gave a more accurate depiction of the national gender wage gap at approximately 70 cents on the male dollar versus 69 cents on the male dollar.
-    \item[$\square$]   At only a 2 to 3 percent gap, these would be the most advantageous regions for non-white workers. The worst regions to work for non-white workers were found in the Rocky Mountain and Southeast regions. Non-white workers experienced a little over 9 percent gap in earnings compared to their white counterparts.
+    \item[$\square$] Areas like the Pacific (West) and Northeast demonstrated a smaller gender wage gap of 70 cents on the male dollar compared to the calculated national average of 69 cents on the male dollar earned. Whereas, the area of Southwest region gave a larger gap than the national average with 64 cents on the male dollar versus 69 cents on the male dollar.
+    \item[$\square$]   At only a 1 to 3 percent gap, these would be the most advantageous regions for non-white workers. The worst regions to work for non-white workers were found in the Rocky Mountain and Southeast regions. Non-white workers experienced a little over 9 percent gap in earnings compared to their white counterparts.
     \item[$\square$] The most problematic factor of the regressions are the critically low \begin{math} R^2 \end{math} values.
 \end{itemize}
 \end{frame}
